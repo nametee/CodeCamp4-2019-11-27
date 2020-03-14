@@ -1,5 +1,5 @@
 import React, { Component } from 'react' 
-import { Table, Typography,Button, Row, Col } from 'antd'
+import { Table, Typography,Button, Row, Col, Statistic } from 'antd'
 const { Title , Paragraph, Text } = Typography
 
 export class Cart extends Component { 
@@ -20,7 +20,7 @@ export class Cart extends Component {
             },
             {
                 title: "Unit",
-                dataIndex: "unit"
+                dataIndex: "amount"
             },
             {
                 title: "Unit price",
@@ -37,7 +37,7 @@ export class Cart extends Component {
                 columns = { columns }
                 dataSource = { productList }
                 title = { () => <h2><Text  type="warning" > { 'Cart' } </Text ></h2> }
-                footer = { () => <Row type="flex" justify="space-between"> <Col span={12}><Text mark> { 'Total : ' + totalPrice } </Text></Col> <Col span={12}><Button type="primary" onClick={ handlerSave } >{ 'Save' }</Button>  </Col> </Row>  }
+                footer = { () => <Row type="flex" justify="space-around"> <Col span={12}><Statistic title="Total prices" value={ totalPrice } /></Col> <Col span={12}><Button type="primary" onClick={ handlerSave } >{ 'Save' }</Button>  </Col> </Row>  }
             />
         )
     }
